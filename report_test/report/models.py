@@ -1,6 +1,10 @@
 from django.db import models
 from django.db.models import Count
 
+class VisitManager(models.Manager):
+    def get_visits_by_user(self):
+        return self.get_queryset().values('policy_id__user_id__name').annotate(count=Count('policy_id'))
+
 
 class User(models.Model):
     name = models.CharField(max_length=100, null=False)
@@ -23,3 +27,4 @@ class Visit(models.Model):
     policy_id = models.ForeignKey(Policy, related_name="visits", on_delete=models.CASCADE)
     page_id = models.ForeignKey(Page, related_name="visits", on_delete=models.CASCADE)
 
+    objects = VisitManager()
