@@ -19,10 +19,9 @@ python manage.py runserver
 Then from the terminal open browser and go to 
   http://127.0.0.1:8000/visits/
   
-          OR 
+      OR
           
-          
-  localhost:8000/visits
+ localhost:8000/visits
   
   
   
