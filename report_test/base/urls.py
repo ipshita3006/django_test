@@ -19,5 +19,5 @@ from report.views import UserVisitsView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('visits/',UserVisitsView.as_view(),name='visits'),
+    path('',UserVisitsView.as_view(),name='visits'),
 ]

@@ -2,6 +2,7 @@ from django.db import models
 from django.db.models import Count
 
 class VisitManager(models.Manager):
+    'This for the manager to check for visitor who have visited'
     def get_visits_by_user(self):
         return self.get_queryset().values('policy_id__user_id__name').annotate(count=Count('policy_id'))
 
